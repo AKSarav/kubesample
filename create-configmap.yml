@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  environment: dev
+  node_options: --prof
+  port: "3000"
+  status.html: |
+    <html>
+    <body>this is some status page from DEV</body>
+    </html>
+kind: ConfigMap
+metadata:
+  name: kubesample
+  namespace: default

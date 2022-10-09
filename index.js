@@ -2,29 +2,15 @@ const express = require('express')
 const app = express()
 const port = process.env.appport
 
-if (process.env.ENVIRONMENT='production'){
+if (process.env.ENVIRONMENT=='production'){
     app.use('/', express.static('prod'))
-
-    app.get('/check', (req, res) => {
-        res.send(process.env.welcomemsg)
-})
 }
-else if (process.env.ENVIRONMENT='qa'){
+else if (process.env.ENVIRONMENT=='qa'){
     app.use('/', express.static('qa'))
-
-    app.get('/check', (req, res) => {
-        res.send(process.env.welcomemsg)
-})
 }
-else if (process.env.ENVIRONMENT='dev'){
+else if (process.env.ENVIRONMENT=='dev'){
     app.use('/', express.static('dev'))
-
-    app.get('/check', (req, res) => {
-        res.send(process.env.welcomemsg)
-})
 }
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
